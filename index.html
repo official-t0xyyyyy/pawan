@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101d35" />
+  <title>Digital Learn 2.0 — Digital Services Learning Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <section id="registerScreen" class="register-screen">
+    <div class="register-hero">
+      <div class="register-brand">
+        <span class="brand-mark">DL</span><span>Digital Learn 2.0</span>
+      </div>
+      <div style="margin-top: 52px">
+        <span class="eyebrow">✦ DIGITAL CONFIDENCE FOR EVERYONE</span>
+
+        <h1>
+          Government<br />
+          digital services,<br />
+          made <span class="headline-accent">easier.</span>
+        </h1>
+        <p>
+          Learn how to navigate DigiLocker, Aadhaar and PAN services through
+          clear guides, short quizzes and practical safety tips. Learn at your
+          own pace, with confidence.
+        </p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <span>▣</span><span>Simple, step-by-step learning</span>
+        </div>
+        <div class="feature">
+          <span>✓</span><span>Quizzes and progress tracking</span>
+        </div>
+        <div class="feature">
+          <span>↗</span><span>Links to official portals</span>
+        </div>
+        <div class="feature">
+          <span>♧</span><span>Privacy and scam-awareness tips</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-illustration">
+      <div class="illustration-glow"></div>
+      <div class="service-visual">
+        <div class="service-icon digilocker-icon">D</div>
+        <div class="service-icon aadhaar-icon">A</div>
+        <div class="service-icon pan-icon">P</div>
+        <div class="visual-card">
+          <div class="visual-card-top">
+            <span class="status-dot"></span>
+            <span>Digital Services</span>
+          </div>
+          <div class="visual-document">
+            <div class="document-symbol">✓</div>
+            <div class="document-lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="visual-caption">Learn. Access. Stay Safe.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h2>Create your learning profile</h2>
+      <p class="sub">
+        Tell us a little about yourself to get started. No Aadhaar or PAN
+        number is needed.
+      </p>
+      <form id="registerForm">
+        <div class="field">
+          <label for="fullName">Full name</label><input id="fullName" maxlength="100" placeholder="e.g. Alex Sharma"
+            autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="ageGroup">Age group</label><select id="ageGroup" required>
+            <option value="">Choose age group</option>
+            <option>Under 18</option>
+            <option>18–24</option>
+            <option>25–34</option>
+            <option>35–44</option>
+            <option>45–59</option>
+            <option>60 and above</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="education">Education level</label><select id="education" required>
+            <option value="">Choose education level</option>
+            <option>No formal education</option>
+            <option>Primary school</option>
+            <option>Secondary school</option>
+            <option>Higher secondary</option>
+            <option>Diploma / ITI</option>
+            <option>Undergraduate</option>
+            <option>Postgraduate or above</option>
+            <option>Prefer not to say</option>
+          </select>
+        </div>
+        <label class="consent"><input type="checkbox" id="consent" required /><span>I agree that my registration details
+            and learning progress may be
+            recorded in the project's Google Sheet for learning evaluation. I
+            will not submit Aadhaar/PAN numbers, OTPs, or document
+            files.</span></label>
+        <button class="btn full" type="submit">Start learning&nbsp; →</button>
+        <div class="notice">
+          Privacy-first learning. Digital Learn 2.0 is an educational website,
+          not a government portal or service provider.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div id="app" class="app hidden">
+    <header class="app-navbar">
+      <a class="brand navbar-brand" href="#overview" aria-label="Digital Learn 2.0 home">
+        <span class="brand-mark">DL</span>
+        <span>Digital Learn 2.0<small>LEARN · PRACTISE · GROW</small></span>
+      </a>
+      <button class="menu-toggle" id="mobileNavBtn" type="button" aria-expanded="false" aria-controls="mainNav">
+        <span class="menu-toggle-lines" aria-hidden="true">☰</span><span>Menu</span>
+      </button>
+      <nav class="nav" id="mainNav" aria-label="Main navigation">
+        <button class="active" data-target="overview"><span class="nav-ico">⌂</span>Dashboard</button>
+        <button data-target="learning"><span class="nav-ico">▣</span>Modules</button>
+        <button data-target="quizSection"><span class="nav-ico">✓</span>Quiz</button>
+        <button data-target="quickLinks"><span class="nav-ico">↗</span>Official links</button>
+        <button data-target="passwordTool"><span class="nav-ico">⌑</span>PDF helper</button>
+        <button data-target="faqSection"><span class="nav-ico">?</span>Help & FAQ</button>
+      </nav>
+      <div class="profile-menu">
+        <button class="user-chip profile-toggle" id="profileToggle" type="button" 
+        aria-expanded="false" aria-controls="profileDropdown">
+          <span class="mini-avatar" id="miniAvatar">A</span>
+          <span id="userChipName">Learner</span>
+          <span aria-hidden="true"></span>
+        </button>
+      
+        <div class="profile-dropdown hidden" id="profileDropdown">
+          <div class="profile-dropdown-name" id="dropdownFirstName">Learner</div>
+          <button class="profile-logout" id="logoutBtn" type="button">
+            ↪ Logout
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="main">
+      <div class="content">
+        <section id="overview">
+          <div class="welcome">
+            <div>
+              <span class="eyebrow">YOUR DIGITAL LEARNING JOURNEY</span>
+              <h1 id="welcomeTitle">Hey Alex! Welcome!!!</h1>
+              <p>Build your digital confidence one small step at a time.</p>
+            </div>
+            <div class="avatar" id="avatar">A</div>
+          </div>
+          <div class="panel progress-panel">
+            <div class="progress-row">
+              <span>Your learning journey</span><span id="progressText">0% complete</span>
+            </div>
+            <div class="track" id="progressBar" role="progressbar" aria-label="Learning progress" aria-valuemin="0"
+              aria-valuemax="100" aria-valuenow="0">
+              <div class="fill" id="progressFill"></div>
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <strong id="modulesDone">0/3</strong><span>Modules completed</span>
+              </div>
+              <div class="stat">
+                <strong id="bestScore">—</strong><span>Latest quiz score</span>
+              </div>
+              <div class="stat">
+                <strong id="learningStatus">Getting started</strong><span>Learning status</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="learning">
+          <div class="section-head">
+            <div>
+              <h2>Explore learning modules</h2>
+              <p>
+                Friendly guides to the digital services you use every day.
+              </p>
+            </div>
+          </div>
+          <div class="module-grid">
+            <article class="module-card">
+              <div class="module-icon">🗂️</div>
+              <h3>DigiLocker basics</h3>
+              <p>
+                Learn about issued digital documents, account access and safe
+                sharing.
+              </p>
+              <button class="text-btn" onclick="openModule('digilocker')">
+                Explore module →
+              </button>
+            </article>
+            <article class="module-card">
+              <div class="module-icon">🪪</div>
+              <h3>Aadhaar services</h3>
+              <p>
+                Understand UIDAI services, updates, e-Aadhaar and safe
+                downloads.
+              </p>
+              <button class="text-btn" onclick="openModule('aadhaar')">
+                Explore module →
+              </button>
+            </article>
+            <article class="module-card">
+              <div class="module-icon">📄</div>
+              <h3>PAN services</h3>
+              <p>
+                Learn about PAN, application routes, corrections and scam
+                prevention.
+              </p>
+              <button class="text-btn" onclick="openModule('pan')">
+                Explore module →
+              </button>
+            </article>
+          </div>
+        </section>
+        <section id="quizSection">
+          <div class="section-head">
+            <div>
+              <h2>Knowledge check</h2>
+              <p>Take a quick quiz to reinforce what you have learned.</p>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Digital services mini quiz</h3>
+            <p class="small">
+              Select one answer per question. Your score can be recorded in
+              the connected Google Sheet.
+            </p>
+            <form id="quizForm">
+              <div class="quiz-q">
+                1. Which platform provides access to digital documents issued
+                by participating organisations?
+              </div>
+              <label class="answer">
+                <input type="radio" name="q1" value="a" required /> DigiLocker
+              </label>
+              <label class="answer">
+                <input type="radio" name="q1" value="b" /> An unknown link
+                sent by a stranger
+              </label>
+              <div class="quiz-q">2. What should you do with an OTP?</div>
+              <label class="answer"><input type="radio" name="q2" value="a" required /> Share it
+                with a caller claiming to be support</label><label class="answer"><input type="radio" name="q2"
+                  value="b" /> Keep it private
+                and use it only in a trusted official flow</label>
+              <div class="quiz-q">
+                3. Where should you begin for Aadhaar-related services?
+              </div>
+              <label class="answer">
+                <input type="radio" name="q3" value="a" required />
+                UIDAI's official website
+              </label>
+              <label class="answer">
+                <input type="radio" name="q3" value="b" />
+                An unfamiliar third-party site
+              </label>
+              <!-- Question 4 -->
+              <div class="quiz-q">4. What is PAN mainly used for?</div>
+              <label class="answer">
+                <input type="radio" name="q4" value="a" required />
+                Tax-related and specified financial identification
+              </label>
+              <label class="answer">
+                <input type="radio" name="q4" value="b" />
+                Storing digital copies of every document
+              </label>
+
+              <!-- Question 5 -->
+              <div class="quiz-q">5. You receive an unexpected link asking for your login details. What should you do?
+              </div>
+              <label class="answer">
+                <input type="radio" name="q5" value="a" required />
+                Open it and enter the requested details
+              </label>
+              <label class="answer">
+                <input type="radio" name="q5" value="b" />
+                Avoid the link and visit the official website directly
+              </label>
+
+              <!-- Question 6 -->
+              <div class="quiz-q">6. Before sharing a document through DigiLocker, what should you check?</div>
+              <label class="answer">
+                <input type="radio" name="q6" value="a" required />
+                The recipient and consent screen
+              </label>
+              <label class="answer">
+                <input type="radio" name="q6" value="b" />
+                Whether a stranger has requested it urgently
+              </label>
+
+              <!-- Question 7 -->
+              <div class="quiz-q">7. Where should you start when looking for PAN-related online services?</div>
+              <label class="answer">
+                <input type="radio" name="q7" value="a" required />
+                An advertisement sent by an unknown person
+              </label>
+              <label class="answer">
+                <input type="radio" name="q7" value="b" />
+                The official Income Tax portal or an authorised PAN service provider
+              </label>
+
+              <!-- Question 8 -->
+              <div class="quiz-q">8. Someone calls claiming to be customer support and asks for your OTP. What should
+                you do?</div>
+              <label class="answer">
+                <input type="radio" name="q8" value="a" required />
+                Keep the OTP private and do not share it
+              </label>
+              <label class="answer">
+                <input type="radio" name="q8" value="b" />
+                Share it if the caller sounds professional
+              </label>
+
+              <!-- Question 9 -->
+              <div class="quiz-q">9. Before starting an Aadhaar service, what should you do?</div>
+              <label class="answer">
+                <input type="radio" name="q9" value="a" required />
+                Follow instructions from any website that appears first
+              </label>
+              <label class="answer">
+                <input type="radio" name="q9" value="b" />
+                Check the official portal for requirements and applicable fees
+              </label>
+
+              <!-- Question 10 -->
+              <div class="quiz-q">10. What is the commonly used e-Aadhaar PDF password format described on this website?
+              </div>
+              <label class="answer">
+                <input type="radio" name="q10" value="a" required />
+                First four letters of the name in CAPITAL letters, followed by the birth year
+              </label>
+              <label class="answer">
+                <input type="radio" name="q10" value="b" />
+                The mobile number followed by the PIN code
+              </label>
+              <div id="quizActions">
+                <button class="btn" type="submit" id="submitQuiz">Submit quiz</button>
+              </div>
+              <div id="quizResult" aria-live="polite"></div>
+            </form>
+            <div id="quizReviewModal" class="quiz-review-modal hidden"
+                 role="dialog" aria-modal="true" aria-labelledby="quizReviewTitle">
+              <div class="quiz-review-window">
+                <div class="quiz-review-header">
+                  <div>
+                    <h2 id="quizReviewTitle">Review Answers</h2>
+                    <p>Check the correct answers and learn why they are correct.</p>
+                  </div>
+                  <button type="button" id="closeQuizReview"
+                          class="quiz-review-close" aria-label="Close review">
+                    &times;
+                  </button>
+                </div>
+                <div id="quizReviewContent" class="quiz-review-content"></div>
+                <div class="quiz-review-footer">
+                  <button type="button" id="closeQuizReviewBottom" class="btn">
+                    Close Review
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="quickLinks">
+          <div class="section-head">
+            <div>
+              <h2>Official quick links</h2>
+              <p>
+                Start from verified portals when completing real services.
+              </p>
+            </div>
+          </div>
+          <div class="panel link-list">
+            <a class="quick-link" href="https://www.digilocker.gov.in/" target="_blank"
+              rel="noopener noreferrer">DigiLocker <span>Official portal ↗</span></a>
+            <a class="quick-link" href="https://uidai.gov.in/" target="_blank" rel="noopener noreferrer">UIDAI / Aadhaar
+              <span>Official portal ↗</span></a>
+            <a class="quick-link" href="https://www.incometax.gov.in/iec/foportal/" target="_blank"
+              rel="noopener noreferrer">Income Tax e-Filing <span>Official portal ↗</span></a>
+            <a class="quick-link" href="https://www.protean-tinpan.com/" target="_blank" rel="noopener noreferrer">PAN
+              services — Protean <span>Service provider ↗</span></a>
+            <div class="notice">
+              Check the website address before entering personal information.
+              Never share OTPs or account passwords with someone who contacts
+              you unexpectedly.
+            </div>
+          </div>
+        </section>
+        <section id="passwordTool">
+          <div class="section-head">
+            <div>
+              <h2>e-Aadhaar PDF password helper</h2>
+              <p>This tool works locally in your browser.</p>
+            </div>
+          </div>
+          <div class="panel">
+            <p class="small">
+              The commonly used e-Aadhaar PDF password format is the first
+              four letters of the name in CAPITAL letters followed by the year
+              of birth (YYYY). Follow the instructions supplied with your PDF
+              if they differ. Inputs for this helper are not sent to the
+              Google Sheet.
+            </p>
+            <div class="two-col">
+              <div class="field">
+                <label for="aadhaarName">Name as printed on Aadhaar</label><input id="aadhaarName"
+                  placeholder="Enter name locally" autocomplete="off" maxlength="100" />
+              </div>
+              <div class="field">
+                <label for="birthYear">Year of birth (YYYY)</label><input id="birthYear" inputmode="numeric"
+                  placeholder="e.g. 1998" maxlength="4" autocomplete="off" />
+              </div>
+            </div>
+            <button class="btn" type="button" id="generatePassword">
+              Generate password
+            </button>
+            <div class="password-output" id="passwordOutput" aria-live="polite">
+              Your password will appear here.
+            </div>
+            <button class="text-btn" type="button" id="copyPassword" style="margin-top: 12px">
+              Copy password
+            </button>
+          </div>
+        </section>
+        <section id="faqSection">
+          <div class="section-head">
+            <div>
+              <h2>Help & frequently asked questions</h2>
+              <p>Quick answers to common concerns.</p>
+            </div>
+          </div>
+          <div class="panel">
+            <details class="faq-item">
+              <summary>
+                Is Digital Learn 2.0 an official government website?
+              </summary>
+              <p>
+                No. It is an independent educational learning project and is
+                not affiliated with UIDAI, DigiLocker, the Income Tax
+                Department or any government agency.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>
+                Will this website apply for Aadhaar or PAN on my behalf?
+              </summary>
+              <p>
+                No. It explains common steps. Applications, updates and
+                downloads must be completed through the appropriate official
+                portal or authorised channel.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Why should I never share an OTP?</summary>
+              <p>
+                An OTP can authorise access or a transaction. Never share it
+                with callers, agents in unsolicited messages or anyone who
+                says they need it to help you.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>What data can be saved in the Google Sheet?</summary>
+              <p>
+                With the integration configured, the project can record your
+                name, age group, education level, quiz score and module
+                completion status. It should not collect Aadhaar/PAN numbers,
+                OTPs or document files.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Will my progress follow me to another device?</summary>
+              <p>
+                This starter keeps the current profile and progress in this
+                browser and sends activity events to the Sheet when
+                configured. Cross-device progress requires a properly designed
+                sign-in and backend.
+              </p>
+            </details>
+          </div>
+        </section>
+        <footer class="footer">
+          © 2026 Digital Learn 2.0 · Educational demo only. Not a government
+          service provider. Check current processes and fees on official
+          portals.
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div id="moduleModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <span class="small">LEARNING MODULE</span>
+          <h2 id="modalTitle">Module</h2>
+        </div>
+        <button class="close" onclick="closeModule()" aria-label="Close module">
+          ✕
+        </button>
+      </div>
+      <div id="modalBody"></div>
+      <div class="module-modal-actions">
+        <button class="btn" id="completeModule" type="button">
+          Next Module →
+        </button>
+        <button class="text-btn" id="closeModuleBtn" type="button">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
